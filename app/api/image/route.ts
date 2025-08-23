@@ -21,10 +21,17 @@ export async function POST(req: NextRequest) {
       n: 1
     });
 
-    const b64 = img.data?.[0]?.b64_json;
-    if (!b64) throw new Error("No image returned");
-
-    return NextResponse.json({ b64 });
+    const imageData = img.data?.[0];
+    if (!imageData) throw new Error("No image returned");
+    
+    // Check if we have base64 data or URL
+    if (imageData.b64_json) {
+      return NextResponse.json({ b64: imageData.b64_json });
+    } else if (imageData.url) {
+      return NextResponse.json({ url: imageData.url });
+    } else {
+      throw new Error("No image data returned");
+    }
   } catch (e: any) {
     return NextResponse.json({ error: e?.message || "Failed" }, { status: 400 });
   }

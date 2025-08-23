@@ -14,7 +14,16 @@ export async function POST(req: NextRequest) {
     
 ${CHARACTER_PROMPT}
 
-Output must strictly follow the provided JSON schema. Create engaging, simple stories that showcase ${AME_CHARACTER.name}'s personality and abilities.`;
+You must respond with a valid JSON object that includes:
+- "title": A catchy title for the comic
+- "logline": A brief summary of the story
+- "panels": An array of 3-6 panel objects, each with:
+  - "id": A unique identifier
+  - "prompt": A visual description for image generation
+  - "caption": A brief caption for the panel
+  - "dialogue": An array of dialogue objects with "speaker" and "text"
+
+Create engaging, simple stories that showcase ${AME_CHARACTER.name}'s personality and abilities.`;
 
     const schema = ComicSchema;
 
@@ -28,10 +37,21 @@ Output must strictly follow the provided JSON schema. Create engaging, simple st
     });
 
     const text = response.choices[0]?.message?.content || "";
-    const parsed = JSON.parse(text);
-    const validated = schema.parse(parsed);
-
-    return NextResponse.json(validated);
+    let parsed;
+    try {
+      parsed = JSON.parse(text);
+    } catch (e) {
+      console.error("Failed to parse JSON response:", text);
+      return NextResponse.json({ error: "Invalid JSON response from AI" }, { status: 500 });
+    }
+    
+    try {
+      const validated = schema.parse(parsed);
+      return NextResponse.json(validated);
+    } catch (e) {
+      console.error("Schema validation failed:", e);
+      return NextResponse.json({ error: "AI response doesn't match expected format" }, { status: 500 });
+    }
   } catch (e: any) {
     return NextResponse.json({ error: e?.message || "Failed" }, { status: 400 });
   }
