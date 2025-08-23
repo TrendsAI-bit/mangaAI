@@ -1,13 +1,9 @@
 {
-  "name": "manga-ai-comic-studio",
   "version": 2,
   "builds": [
     {
       "src": "package.json",
       "use": "@vercel/next"
     }
-  ],
-  "env": {
-    "OPENAI_API_KEY": "@openai_api_key"
-  }
+  ]
 }
