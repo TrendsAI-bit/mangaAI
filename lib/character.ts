@@ -7,14 +7,16 @@ export const AME_CHARACTER = {
   personality: "Curious, brave, sometimes naive but always determined. Ame speaks in simple, direct sentences and often expresses wonder at new discoveries.",
   abilities: "Can hop around, puff into smoke when surprised, and has a natural ability to make friends with other creatures.",
   catchphrases: ["Ame!", "Wow!", "Let's go!", "What's this?"],
-  imagePrompt: "cute fluffy black creature with big round eyes, tiny beak-like mouth, round fuzzy body, simple cartoon style, minimal details, consistent character design, Studio Ghibli-inspired, chibi proportions, black silhouette with white eyes, no complex features",
+  imagePrompt: "cute fluffy black creature with two large perfectly round white eyes with black pupils, tiny triangular pink beak-like mouth, round fuzzy body with subtle texture, four slender black stick-like limbs resembling frog legs with three-toed feet, squatting posture, simple cartoon style, minimal details, clean lines, no shadows or textures",
   detailedDesign: {
-    body: "Round, fluffy black silhouette, simple and cute",
-    eyes: "Large, round, white eyes with black pupils, very expressive",
-    mouth: "Tiny, barely visible beak-like mouth",
+    body: "Round, fluffy black silhouette with subtle texture around edges suggesting fur, soft and fuzzy appearance",
+    eyes: "Two large, perfectly round white eyes with solid black pupils positioned centrally, wide-eyed and innocent expression",
+    mouth: "Tiny triangular pink beak-like mouth below and between the eyes, very small and simple",
+    limbs: "Four slender black stick-like limbs resembling frog legs, bent at knees with three-toed feet splayed out",
+    posture: "Squatting or sitting posture, body low to ground with limbs spread out for stability",
     features: "Minimal details, no nose, no ears, just the essential cute features",
-    style: "Simple cartoon style, clean lines, no shading, flat colors",
-    proportions: "Chibi proportions, head slightly larger than body"
+    style: "Clean cartoon aesthetic, solid black body and limbs, bright white eyes and pink mouth, no shadows or textures",
+    proportions: "Chibi proportions, simple and clean design"
   }
 };
 

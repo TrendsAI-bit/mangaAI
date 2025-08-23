@@ -47,7 +47,7 @@ export default function ComicCanvas({ comic, images, onReroll }: any) {
               ))}
             </div>
             <button onClick={() => onReroll(idx)} className="text-xs underline hover:no-underline">
-              Re‑roll image
+              Re‑roll image (if character doesn't look like アメ)
             </button>
           </div>
         ))}
