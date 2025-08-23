@@ -35,7 +35,7 @@ export default function ComicCanvas({ comic, images, onReroll }: any) {
             <div className="aspect-square bg-gray-100 flex items-center justify-center overflow-hidden rounded">
               {images[idx] ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={`data:image/png;base64,${images[idx]}`} alt={p.caption} className="w-full h-full object-cover" />
+                <img src={images[idx]} alt={p.caption} className="w-full h-full object-cover" />
               ) : (
                 <span className="text-sm opacity-60">Generating image…</span>
               )}

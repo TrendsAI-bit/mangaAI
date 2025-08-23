@@ -27,13 +27,11 @@ export async function POST(req: NextRequest) {
     const imageData = img.data?.[0];
     if (!imageData) throw new Error("No image returned");
     
-    // Check if we have base64 data or URL
-    if (imageData.b64_json) {
-      return NextResponse.json({ b64: imageData.b64_json });
-    } else if (imageData.url) {
+    // DALL-E 3 returns URLs, not base64
+    if (imageData.url) {
       return NextResponse.json({ url: imageData.url });
     } else {
-      throw new Error("No image data returned");
+      throw new Error("No image URL returned");
     }
   } catch (e: any) {
     return NextResponse.json({ error: e?.message || "Failed" }, { status: 400 });
