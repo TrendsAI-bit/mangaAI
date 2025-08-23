@@ -2,21 +2,21 @@ import { z } from "zod";
 
 export const AME_CHARACTER = {
   name: "アメ (Ame)",
-  description: "A cute, fluffy black creature with big round eyes, a tiny beak-like mouth, and a round fuzzy body. Ame is curious, adventurous, and always ready for new experiences.",
+  description: "A cute cartoon-style black fluffy frog with messy fur texture like a scruffy black cat, oversized round white eyes, and a tiny pink triangle nose-like mouth. Ame is curious, adventurous, and always ready for new experiences.",
   visualStyle: "cute cartoon style, simple flat colors, round edges, minimal details, consistent character proportions, Studio Ghibli-inspired chibi design",
   personality: "Curious, brave, sometimes naive but always determined. Ame speaks in simple, direct sentences and often expresses wonder at new discoveries.",
   abilities: "Can hop around, puff into smoke when surprised, and has a natural ability to make friends with other creatures.",
   catchphrases: ["Ame!", "Wow!", "Let's go!", "What's this?"],
-  imagePrompt: "cute fluffy black creature with two large perfectly round white eyes with black pupils, tiny triangular pink beak-like mouth, round fuzzy body with subtle texture, four slender black stick-like limbs resembling frog legs with three-toed feet, squatting posture, simple cartoon style, minimal details, clean lines, no shadows or textures",
+  imagePrompt: "cute cartoon-style black fluffy frog sitting upright, with messy fur texture like a scruffy black cat, oversized round white eyes with small black pupils, tiny pink triangle nose-like mouth, slightly fluffy outline, thin limbs with webbed frog feet spread out in front, hand-painted soft whimsical style, clean white background, adorable slightly goofy expressive",
   detailedDesign: {
-    body: "Round, fluffy black silhouette with subtle texture around edges suggesting fur, soft and fuzzy appearance",
-    eyes: "Two large, perfectly round white eyes with solid black pupils positioned centrally, wide-eyed and innocent expression",
-    mouth: "Tiny triangular pink beak-like mouth below and between the eyes, very small and simple",
-    limbs: "Four slender black stick-like limbs resembling frog legs, bent at knees with three-toed feet splayed out",
-    posture: "Squatting or sitting posture, body low to ground with limbs spread out for stability",
-    features: "Minimal details, no nose, no ears, just the essential cute features",
-    style: "Clean cartoon aesthetic, solid black body and limbs, bright white eyes and pink mouth, no shadows or textures",
-    proportions: "Chibi proportions, simple and clean design"
+    body: "Black fluffy frog sitting upright, with messy fur texture like a scruffy black cat, slightly fluffy outline",
+    eyes: "Oversized round white eyes with small black pupils, very expressive and cute",
+    mouth: "Tiny pink triangle nose-like mouth, small and simple",
+    limbs: "Thin limbs with webbed frog feet spread out in front",
+    posture: "Sitting upright like a cat, keeping scruffy charm",
+    features: "Fur-like texture (not smooth-skinned), minimal details",
+    style: "Hand-painted soft whimsical style, clean white background, adorable slightly goofy expressive",
+    proportions: "Exaggerated round eyes for cuteness, fluffy black cat turned into frog"
   }
 };
 
