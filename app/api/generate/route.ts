@@ -3,7 +3,9 @@ import OpenAI from "openai";
 import { ComicSchema } from "@/lib/schemas";
 import { CHARACTER_PROMPT, AME_CHARACTER } from "@/lib/character";
 
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const client = new OpenAI({ 
+  apiKey: process.env.OPENAI_API_KEY || "dummy-key-for-build" 
+});
 
 export async function POST(req: NextRequest) {
   try {

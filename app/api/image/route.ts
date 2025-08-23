@@ -2,7 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { AME_CHARACTER } from "@/lib/character";
 
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const client = new OpenAI({ 
+  apiKey: process.env.OPENAI_API_KEY || "dummy-key-for-build" 
+});
 
 export async function POST(req: NextRequest) {
   try {
