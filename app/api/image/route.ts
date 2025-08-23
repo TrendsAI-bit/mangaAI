@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
     const { prompt, size } = await req.json();
 
     // Enhance the prompt with character consistency
-    const enhancedPrompt = `${AME_CHARACTER.imagePrompt}. ${prompt}. Comic panel style, clean lines, consistent character design. The character must be a simple black fluffy creature with big white round eyes and a tiny beak-like mouth, minimal details, cute chibi style, exactly like the character アメ (Ame) design.`;
+    const enhancedPrompt = `${AME_CHARACTER.imagePrompt}. ${prompt}. Comic panel style, clean lines, consistent character design. The character must be: ${AME_CHARACTER.detailedDesign.body}, ${AME_CHARACTER.detailedDesign.eyes}, ${AME_CHARACTER.detailedDesign.mouth}, ${AME_CHARACTER.detailedDesign.features}, ${AME_CHARACTER.detailedDesign.style}, ${AME_CHARACTER.detailedDesign.proportions}.`;
 
     const img = await client.images.generate({
       model: "dall-e-3",
