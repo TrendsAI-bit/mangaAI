@@ -16,25 +16,16 @@ Output must strictly follow the provided JSON schema. Create engaging, simple st
 
     const schema = ComicSchema;
 
-    const response = await client.responses.create({
+    const response = await client.chat.completions.create({
       model: "gpt-4o-mini",
-      input: [
+      messages: [
         { role: "system", content: system },
         { role: "user", content: `Story idea: ${idea}\nTarget visual style: ${style || "manga, clean lines, expressive chibi, cute cartoon style"}.` }
       ],
-      text: {
-        format: {
-          type: "json_schema",
-          json_schema: {
-            name: "Comic",
-            schema: schema,
-            strict: true
-          }
-        }
-      }
+      response_format: { type: "json_object" }
     });
 
-    const text = response.output_text || "";
+    const text = response.choices[0]?.message?.content || "";
     const parsed = JSON.parse(text);
     const validated = schema.parse(parsed);
 

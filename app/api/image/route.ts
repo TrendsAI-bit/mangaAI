@@ -14,7 +14,9 @@ export async function POST(req: NextRequest) {
     const img = await client.images.generate({
       model: "dall-e-3",
       prompt: enhancedPrompt,
-      size: size || "1024x1024"
+      size: size || "1024x1024",
+      quality: "standard",
+      n: 1
     });
 
     const b64 = img.data?.[0]?.b64_json;
