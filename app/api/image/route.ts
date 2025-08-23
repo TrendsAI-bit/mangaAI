@@ -2,16 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { AME_CHARACTER } from "@/lib/character";
 
-const client = new OpenAI({ 
-  apiKey: process.env.OPENAI_API_KEY 
-});
-
-if (!process.env.OPENAI_API_KEY) {
-  return NextResponse.json({ error: "OpenAI API key not configured" }, { status: 500 });
-}
-
 export async function POST(req: NextRequest) {
   try {
+    if (!process.env.OPENAI_API_KEY) {
+      return NextResponse.json({ error: "OpenAI API key not configured" }, { status: 500 });
+    }
+
+    const client = new OpenAI({ 
+      apiKey: process.env.OPENAI_API_KEY 
+    });
     const { prompt, size } = await req.json();
 
     // Enhance the prompt with character consistency
