@@ -15,8 +15,8 @@ type Comic = {
 };
 
 export default function Page() {
-  const [idea, setIdea] = useState("Ame discovers a magical garden");
-  const [style, setStyle] = useState("cute cartoon style, Studio Ghibli-inspired, clean lines, expressive chibi");
+  const [idea, setIdea] = useState("Ame the fluffy frog discovers a magical pond");
+  const [style, setStyle] = useState("cute cartoon-style black fluffy frog, messy fur texture like scruffy black cat, oversized round white eyes, tiny pink triangle nose-like mouth, webbed frog feet, hand-painted soft whimsical style");
   const [comic, setComic] = useState<Comic | null>(null);
   const [images, setImages] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
@@ -114,7 +114,7 @@ export default function Page() {
         <input 
           value={style} 
           onChange={e => setStyle(e.target.value)} 
-          placeholder="Visual style (optional)" 
+          placeholder="Visual style for アメ (Ame) character (optional)" 
           className="border p-3 rounded md:col-span-3"
         />
       </section>
