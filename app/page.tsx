@@ -41,8 +41,13 @@ export default function Page() {
             prompt: `${style}. ${p.prompt}. Comic panel style, consistent character design.` 
           }) 
         });
-        const { b64 } = await img.json();
-        outs.push(b64);
+        const imgData = await img.json();
+        if (imgData.error) {
+          console.error("Image generation error:", imgData.error);
+          outs.push(""); // Add empty string for failed image
+        } else {
+          outs.push(imgData.url);
+        }
         setImages([...outs]);
       }
     } catch (e) {
@@ -61,9 +66,14 @@ export default function Page() {
         prompt: `${style}. ${p.prompt}. Comic panel style, consistent character design.` 
       }) 
     });
-    const { b64 } = await img.json();
+    const imgData = await img.json();
     const next = images.slice(); 
-    next[idx] = b64; 
+    if (imgData.error) {
+      console.error("Image generation error:", imgData.error);
+      next[idx] = ""; // Clear failed image
+    } else {
+      next[idx] = imgData.url;
+    }
     setImages(next);
   }
 
