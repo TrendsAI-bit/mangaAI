@@ -4,8 +4,12 @@ import { ComicSchema } from "@/lib/schemas";
 import { CHARACTER_PROMPT, AME_CHARACTER } from "@/lib/character";
 
 const client = new OpenAI({ 
-  apiKey: process.env.OPENAI_API_KEY || "dummy-key-for-build" 
+  apiKey: process.env.OPENAI_API_KEY 
 });
+
+if (!process.env.OPENAI_API_KEY) {
+  return NextResponse.json({ error: "OpenAI API key not configured" }, { status: 500 });
+}
 
 export async function POST(req: NextRequest) {
   try {
