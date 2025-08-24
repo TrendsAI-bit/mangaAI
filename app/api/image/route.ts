@@ -27,10 +27,16 @@ export async function POST(req: NextRequest) {
     const imageData = img.data?.[0];
     if (!imageData) throw new Error("No image returned");
     
-    // DALL-E 3 returns URLs, not base64
+    console.log("Image data received:", JSON.stringify(imageData, null, 2));
+    
+    // GPT-4o and DALL-E 3 both return URLs
     if (imageData.url) {
       return NextResponse.json({ url: imageData.url });
+    } else if (imageData.b64_json) {
+      // Fallback for base64 format if needed
+      return NextResponse.json({ b64: imageData.b64_json });
     } else {
+      console.log("Available image data keys:", Object.keys(imageData));
       throw new Error("No image URL returned");
     }
   } catch (e: any) {
