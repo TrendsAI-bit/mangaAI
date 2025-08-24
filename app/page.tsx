@@ -46,7 +46,15 @@ export default function Page() {
           console.error("Image generation error:", imgData.error);
           outs.push(""); // Add empty string for failed image
         } else {
-          outs.push(imgData.url);
+          // Handle both base64 and URL formats
+          if (imgData.b64) {
+            outs.push(`data:image/png;base64,${imgData.b64}`);
+          } else if (imgData.url) {
+            outs.push(imgData.url);
+          } else {
+            console.error("No image data returned");
+            outs.push(""); // Add empty string for failed image
+          }
         }
         setImages([...outs]);
       }
@@ -72,7 +80,15 @@ export default function Page() {
       console.error("Image generation error:", imgData.error);
       next[idx] = ""; // Clear failed image
     } else {
-      next[idx] = imgData.url;
+      // Handle both base64 and URL formats
+      if (imgData.b64) {
+        next[idx] = `data:image/png;base64,${imgData.b64}`;
+      } else if (imgData.url) {
+        next[idx] = imgData.url;
+      } else {
+        console.error("No image data returned for reroll");
+        next[idx] = ""; // Clear failed image
+      }
     }
     setImages(next);
   }

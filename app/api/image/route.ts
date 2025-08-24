@@ -29,15 +29,14 @@ export async function POST(req: NextRequest) {
     
     console.log("Image data received:", JSON.stringify(imageData, null, 2));
     
-    // GPT-4o and DALL-E 3 both return URLs
-    if (imageData.url) {
-      return NextResponse.json({ url: imageData.url });
-    } else if (imageData.b64_json) {
-      // Fallback for base64 format if needed
+    // GPT-4o returns base64, DALL-E 3 returns URLs
+    if (imageData.b64_json) {
       return NextResponse.json({ b64: imageData.b64_json });
+    } else if (imageData.url) {
+      return NextResponse.json({ url: imageData.url });
     } else {
       console.log("Available image data keys:", Object.keys(imageData));
-      throw new Error("No image URL returned");
+      throw new Error("No image data returned");
     }
   } catch (e: any) {
     return NextResponse.json({ error: e?.message || "Failed" }, { status: 400 });
