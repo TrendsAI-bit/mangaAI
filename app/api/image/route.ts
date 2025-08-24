@@ -14,13 +14,13 @@ export async function POST(req: NextRequest) {
     const { prompt, size } = await req.json();
 
     // Enhance the prompt with character consistency
-    const enhancedPrompt = `${AME_CHARACTER.imagePrompt}. ${prompt}. Comic panel style, clean lines, consistent character design. The character must be exactly: ${AME_CHARACTER.detailedDesign.body}, ${AME_CHARACTER.detailedDesign.eyes}, ${AME_CHARACTER.detailedDesign.mouth}, ${AME_CHARACTER.detailedDesign.limbs}, ${AME_CHARACTER.detailedDesign.posture}, ${AME_CHARACTER.detailedDesign.features}, ${AME_CHARACTER.detailedDesign.style}, ${AME_CHARACTER.detailedDesign.proportions}. The character should look like a fluffy black cat turned into a frog, with fur-like texture and webbed feet.`;
+    const enhancedPrompt = `${AME_CHARACTER.imagePrompt}. ${prompt}. Comic panel style, clean lines, consistent character design. The character must be exactly: ${AME_CHARACTER.detailedDesign.body}, ${AME_CHARACTER.detailedDesign.eyes}, ${AME_CHARACTER.detailedDesign.mouth}, ${AME_CHARACTER.detailedDesign.limbs}, ${AME_CHARACTER.detailedDesign.posture}, ${AME_CHARACTER.detailedDesign.features}, ${AME_CHARACTER.detailedDesign.style}, ${AME_CHARACTER.detailedDesign.proportions}. The character should look like a fluffy black cat turned into a frog, with fur-like texture and webbed feet. IMPORTANT: The character must have the exact same design in every panel - black fluffy body, oversized round white eyes with black pupils, tiny pink triangle nose-like mouth, thin limbs with webbed frog feet spread out in front, sitting upright like a cat.`;
 
     const img = await client.images.generate({
-      model: "gpt-image-1",
+      model: "dall-e-3",
       prompt: enhancedPrompt,
       size: size || "1024x1024",
-      quality: "high",
+      quality: "standard",
       n: 1
     });
 
