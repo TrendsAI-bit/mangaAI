@@ -165,6 +165,13 @@ export default function Page() {
           />
         </section>
 
+        {/* Comic Display */}
+        {comic && (
+          <div className="manga-card rounded-2xl p-6">
+            <ComicCanvas comic={comic} images={images} onReroll={reroll} />
+          </div>
+        )}
+
         {/* Features Section */}
         <section className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           <div className="manga-card rounded-xl p-6 text-center">
@@ -183,13 +190,6 @@ export default function Page() {
             <p className="text-gray-700 text-sm">Export your manga as high-quality PNG images</p>
           </div>
         </section>
-
-        {/* Comic Display */}
-        {comic && (
-          <div className="manga-card rounded-2xl p-6">
-            <ComicCanvas comic={comic} images={images} onReroll={reroll} />
-          </div>
-        )}
       </main>
     </div>
   );
