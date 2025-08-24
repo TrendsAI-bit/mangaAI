@@ -1,12 +1,13 @@
-# AI Comic Studio - アメ (Ame) Adventures
+# Ame Manga AI - アメ (Ame) Adventures
 
-A Next.js application that generates comics featuring your favorite character アメ (Ame)! Write a story idea and watch as AI creates a complete comic with panels, captions, dialogue, and beautiful artwork.
+A Next.js application that generates manga featuring your favorite character アメ (Ame)! Write a story idea and watch as AI creates a complete manga with panels, captions, dialogue, and beautiful artwork based on the reference image.
 
 ## Features
 
-- **Character-Driven Stories**: Every comic features アメ (Ame) as the main protagonist
-- **AI-Powered Generation**: Uses OpenAI's GPT-4 and DALL-E 3 for story and image creation
-- **Interactive Interface**: Re-roll images, edit text, and export comics as PNG
+- **Character-Driven Stories**: Every manga features アメ (Ame) as the main protagonist
+- **AI-Powered Generation**: Uses OpenAI's GPT-4 and GPT-4o for story and image creation
+- **Interactive Interface**: Re-roll images, edit text, and export manga as PNG
+- **Reference Image-Based**: All character generation is based on the actual アメ (Ame) reference image
 - **Consistent Character Design**: Maintains アメ (Ame)'s unique appearance across all panels
 - **Beautiful UI**: Clean, modern interface with Tailwind CSS
 

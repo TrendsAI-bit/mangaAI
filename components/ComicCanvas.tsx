@@ -19,15 +19,15 @@ export default function ComicCanvas({ comic, images, onReroll }: any) {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <div>
-          <h2 className="text-2xl font-semibold">{comic.title}</h2>
-          <p className="text-sm text-gray-600">Featuring {AME_CHARACTER.name}</p>
+              <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-2xl font-semibold">{comic.title}</h2>
+            <p className="text-sm text-gray-600">Ame Manga AI - Featuring {AME_CHARACTER.name}</p>
+          </div>
+          <button onClick={exportPng} className="px-3 py-1 rounded bg-black text-white hover:bg-gray-800 transition-colors">
+            Export PNG
+          </button>
         </div>
-        <button onClick={exportPng} className="px-3 py-1 rounded bg-black text-white hover:bg-gray-800 transition-colors">
-          Export PNG
-        </button>
-      </div>
       <p className="opacity-70">{comic.logline}</p>
       <div ref={ref} className="grid md:grid-cols-3 gap-4">
         {comic.panels.map((p: any, idx: number) => (

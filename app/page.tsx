@@ -103,7 +103,7 @@ export default function Page() {
             className="w-16 h-16 rounded-full object-cover"
           />
           <div>
-            <h1 className="text-4xl font-bold">AI Comic Studio</h1>
+            <h1 className="text-4xl font-bold">Ame Manga AI</h1>
             <p className="text-lg text-gray-600">Starring {AME_CHARACTER.name}</p>
           </div>
         </div>

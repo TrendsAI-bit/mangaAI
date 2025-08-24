@@ -13,8 +13,8 @@ export async function POST(req: NextRequest) {
     });
     const { prompt, size } = await req.json();
 
-    // Enhance the prompt with character consistency
-    const enhancedPrompt = `${AME_CHARACTER.imagePrompt}. ${prompt}. Comic panel style, clean lines, consistent character design. The character must be exactly: ${AME_CHARACTER.detailedDesign.body}, ${AME_CHARACTER.detailedDesign.eyes}, ${AME_CHARACTER.detailedDesign.mouth}, ${AME_CHARACTER.detailedDesign.limbs}, ${AME_CHARACTER.detailedDesign.posture}, ${AME_CHARACTER.detailedDesign.features}, ${AME_CHARACTER.detailedDesign.style}, ${AME_CHARACTER.detailedDesign.proportions}. The character should look like a fluffy black cat turned into a frog, with fur-like texture and webbed feet. IMPORTANT: The character must have the exact same design in every panel - black fluffy body, oversized round white eyes with black pupils, tiny pink triangle nose-like mouth, thin limbs with webbed frog feet spread out in front, sitting upright like a cat.`;
+    // Enhance the prompt with character consistency based on reference image
+    const enhancedPrompt = `Create an image that is an exact replica of the reference character ${AME_CHARACTER.name} from the image "${AME_CHARACTER.referenceImage}". ${AME_CHARACTER.imagePrompt}. ${prompt}. Comic panel style, clean lines, consistent character design. The character must be exactly: ${AME_CHARACTER.detailedDesign.body}, ${AME_CHARACTER.detailedDesign.eyes}, ${AME_CHARACTER.detailedDesign.mouth}, ${AME_CHARACTER.detailedDesign.limbs}, ${AME_CHARACTER.detailedDesign.posture}, ${AME_CHARACTER.detailedDesign.features}, ${AME_CHARACTER.detailedDesign.style}, ${AME_CHARACTER.detailedDesign.proportions}. The character should look exactly like the reference image in every panel - same proportions, same style, same cute fluffy black frog appearance.`;
 
     const img = await client.images.generate({
       model: "gpt-image-1",

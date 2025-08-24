@@ -7,7 +7,8 @@ export const AME_CHARACTER = {
   personality: "Curious, brave, sometimes naive but always determined. Ame speaks in simple, direct sentences and often expresses wonder at new discoveries.",
   abilities: "Can hop around, puff into smoke when surprised, and has a natural ability to make friends with other creatures.",
   catchphrases: ["Ame!", "Wow!", "Let's go!", "What's this?"],
-  imagePrompt: "cute cartoon-style black fluffy frog sitting upright, with messy fur texture like a scruffy black cat, oversized round white eyes with small black pupils, tiny pink triangle nose-like mouth, slightly fluffy outline, thin limbs with webbed frog feet spread out in front, hand-painted soft whimsical style, clean white background, adorable slightly goofy expressive",
+  referenceImage: "/asset/アメ (Ame).png",
+  imagePrompt: "exact replica of the reference image: cute cartoon-style black fluffy frog sitting upright, with messy fur texture like a scruffy black cat, oversized round white eyes with small black pupils, tiny pink triangle nose-like mouth, slightly fluffy outline, thin limbs with webbed frog feet spread out in front, hand-painted soft whimsical style, clean white background, adorable slightly goofy expressive - this character must look exactly like the reference image in every panel",
   detailedDesign: {
     body: "Black fluffy frog sitting upright, with messy fur texture like a scruffy black cat, slightly fluffy outline",
     eyes: "Oversized round white eyes with small black pupils, very expressive and cute",

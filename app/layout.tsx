@@ -1,6 +1,6 @@
 import "./globals.css";
 
-export const metadata = { title: "AI Comic Studio - アメ (Ame) Adventures" } as const;
+export const metadata = { title: "Ame Manga AI - アメ (Ame) Adventures" } as const;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
