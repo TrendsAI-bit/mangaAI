@@ -94,48 +94,108 @@ export default function Page() {
   }
 
   return (
-    <main className="max-w-5xl mx-auto p-6 space-y-6">
-      <header className="space-y-4 text-center">
-        <div className="flex items-center justify-center space-x-3">
-          <img 
-            src="/asset/アメ (Ame).png" 
-            alt={AME_CHARACTER.name}
-            className="w-16 h-16 rounded-full object-cover"
-          />
-          <div>
-            <h1 className="text-4xl font-bold">Ame Manga AI</h1>
-            <p className="text-lg text-gray-600">Starring {AME_CHARACTER.name}</p>
+    <div className="min-h-screen gradient-bg">
+      {/* Animated background elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-4 h-4 bg-white rounded-full sparkle opacity-60"></div>
+        <div className="absolute top-40 right-20 w-3 h-3 bg-white rounded-full sparkle opacity-40" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute bottom-40 left-20 w-2 h-2 bg-white rounded-full sparkle opacity-50" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-20 right-10 w-5 h-5 bg-white rounded-full sparkle opacity-30" style={{animationDelay: '1.5s'}}></div>
+      </div>
+
+      <main className="relative max-w-6xl mx-auto p-6 space-y-8">
+        {/* Hero Section */}
+        <header className="text-center space-y-6 pt-8">
+          <div className="flex items-center justify-center space-x-4 mb-6">
+            <div className="relative">
+              <img 
+                src="/asset/アメ (Ame).png" 
+                alt={AME_CHARACTER.name}
+                className="w-20 h-20 rounded-full object-cover floating shadow-lg"
+              />
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center text-xs font-bold text-black">
+                ✨
+              </div>
+            </div>
+            <div>
+              <h1 className="text-5xl font-bold text-white mb-2 drop-shadow-lg">
+                Ame Manga AI
+              </h1>
+              <p className="text-xl text-white/90 font-medium">
+                Starring {AME_CHARACTER.name}
+              </p>
+            </div>
           </div>
-        </div>
-        <p className="text-sm opacity-70 max-w-2xl mx-auto">
-          Write a story idea and watch {AME_CHARACTER.name} come to life in a beautiful comic! 
-          Our AI will create panels, captions, dialogue, and generate artwork featuring your favorite fluffy character.
-        </p>
-      </header>
+          
+          <div className="glass-effect rounded-2xl p-6 max-w-3xl mx-auto">
+            <p className="text-lg text-white/90 leading-relaxed">
+              ✨ Write a story idea and watch {AME_CHARACTER.name} come to life in a beautiful manga! 
+              Our AI will create panels, captions, dialogue, and generate artwork featuring your favorite fluffy character.
+            </p>
+          </div>
+        </header>
 
-      <section className="grid md:grid-cols-3 gap-3 max-w-4xl mx-auto">
-        <input 
-          value={idea} 
-          onChange={e => setIdea(e.target.value)} 
-          placeholder="What adventure should Ame go on?" 
-          className="border p-3 rounded col-span-2 text-lg"
-        />
-        <button 
-          onClick={generate} 
-          disabled={loading} 
-          className="rounded bg-black text-white px-6 py-3 text-lg font-medium hover:bg-gray-800 transition-colors disabled:opacity-50"
-        >
-          {loading ? "Creating comic..." : "Generate Comic"}
-        </button>
-        <input 
-          value={style} 
-          onChange={e => setStyle(e.target.value)} 
-          placeholder="Visual style for アメ (Ame) character (optional)" 
-          className="border p-3 rounded md:col-span-3"
-        />
-      </section>
+        {/* Input Section */}
+        <section className="glass-effect rounded-2xl p-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-4 mb-4">
+            <input 
+              value={idea} 
+              onChange={e => setIdea(e.target.value)} 
+              placeholder="What adventure should Ame go on?" 
+              className="col-span-2 p-4 rounded-xl text-lg border-0 bg-white/90 backdrop-blur-sm focus:bg-white focus:ring-2 focus:ring-purple-400 transition-all duration-300"
+            />
+            <button 
+              onClick={generate} 
+              disabled={loading} 
+              className="p-4 rounded-xl text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:transform-none shadow-lg"
+            >
+              {loading ? (
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <span>Creating...</span>
+                </div>
+              ) : (
+                <div className="flex items-center justify-center space-x-2">
+                  <span>🎨 Generate Manga</span>
+                </div>
+              )}
+            </button>
+          </div>
+          
+          <input 
+            value={style} 
+            onChange={e => setStyle(e.target.value)} 
+            placeholder="Visual style for アメ (Ame) character (optional)" 
+            className="w-full p-4 rounded-xl text-lg border-0 bg-white/90 backdrop-blur-sm focus:bg-white focus:ring-2 focus:ring-purple-400 transition-all duration-300"
+          />
+        </section>
 
-      {comic && <ComicCanvas comic={comic} images={images} onReroll={reroll} />}
-    </main>
+        {/* Features Section */}
+        <section className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="glass-effect rounded-xl p-6 text-center">
+            <div className="text-3xl mb-3">🎭</div>
+            <h3 className="text-white font-semibold mb-2">Character-Driven</h3>
+            <p className="text-white/80 text-sm">Every story features {AME_CHARACTER.name} as the main protagonist</p>
+          </div>
+          <div className="glass-effect rounded-xl p-6 text-center">
+            <div className="text-3xl mb-3">🤖</div>
+            <h3 className="text-white font-semibold mb-2">AI-Powered</h3>
+            <p className="text-white/80 text-sm">GPT-4o generates stories and artwork with perfect consistency</p>
+          </div>
+          <div className="glass-effect rounded-xl p-6 text-center">
+            <div className="text-3xl mb-3">🎨</div>
+            <h3 className="text-white font-semibold mb-2">Beautiful Art</h3>
+            <p className="text-white/80 text-sm">Export your manga as high-quality PNG images</p>
+          </div>
+        </section>
+
+        {/* Comic Display */}
+        {comic && (
+          <div className="glass-effect rounded-2xl p-6">
+            <ComicCanvas comic={comic} images={images} onReroll={reroll} />
+          </div>
+        )}
+      </main>
+    </div>
   );
 }
